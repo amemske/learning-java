@@ -1,0 +1,88 @@
+package com.uopeople;
+
+import java.util.Scanner;
+
+public class Quiz {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        //create a variable to store correct answers from the user
+        int correctResponses = 0;
+        
+    
+        //1st Question
+        
+     // 1st Question
+        System.out.print("Question1: Which is the highest mountain: A. Mt.Elbrus, B. Mt.Kilimanjaro, C. Mt.Everest, D. Mt.Kenya :- ");
+        char response1;
+
+        do {
+            response1 = scanner.next().toUpperCase().charAt(0);
+            if (response1 == 'C') {
+                correctResponses++;
+            } else if (!Character.isLetter(response1) || (response1 < 'A' || response1 > 'D')) {
+                System.out.println("Question1: Invalid choice entered ");
+            }
+        } while (!(Character.isLetter(response1) && (response1 >= 'A' && response1 <= 'D')));
+
+       
+        
+      //2nd  Question
+        
+        System.out.print("Question2: She was working on her computer with her baby next to ____: A. herself, B. her, C. her own, D. hers  :- ");
+        char response2 = scanner.next().toUpperCase().charAt(0);
+
+        if(response2 == 'B') {  	
+        	correctResponses++;
+        } else if(!Character.isLetter(response2) || (response2 < 'A' || response2 > 'D')){
+        	System.out.println("Question2: Invalid choice entered ");
+        } 
+        	
+        
+        //3rd  Question
+        
+        System.out.print("Question3: What is 6 + 6 : A. 66, B. 16, C. 12, D. 0 :- ");
+        char response3 = scanner.next().toUpperCase().charAt(0);
+
+        if(response3 == 'C') {  	
+        	correctResponses++;
+        } else if(!Character.isLetter(response3) || (response3 < 'A' || response3 > 'D')){
+        	System.out.println("Question3: Invalid choice entered ");
+        } 
+        
+        //4th  Question
+        
+        System.out.print("Question4: What is the country code of USA: A. +1, B. +002, C. +97, D. +44 :- ");
+        char response4 = scanner.next().toUpperCase().charAt(0);
+
+        if(response4 == 'A') {  	
+        	correctResponses++;
+        } else if(!Character.isLetter(response4) || (response4 < 'A' || response4 > 'D')){
+        	System.out.println("Question4: Invalid choice entered ");
+        } 
+        	
+        
+        //5th  Question
+        
+        System.out.print("Question5: He _____ robbed as he was walking out of the bank:  A. had, B. did, C. got, D. were :- ");
+        char response5 = scanner.next().toUpperCase().charAt(0);
+
+        if(response5 == 'C') {  	
+        	correctResponses++;
+        } else if(!Character.isLetter(response5) || (response5 < 'A' || response5 > 'D')){
+        	System.out.println("Question5: Invalid choice entered ");
+        }
+     
+        
+      //calculate percentage - convert correctResponses to double so that the percentage is not rounded off. 
+      double percentage =  ((double) correctResponses / 5 ) * 100;
+
+      // Print the score percentage  
+      System.out.println("You got : " + percentage + "%");
+     
+        
+       // Close the scanner to avoid resource leaks
+       scanner.close();
+    }
+}

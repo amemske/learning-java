@@ -1,0 +1,34 @@
+package com.uopeople;
+
+import java.util.Scanner;
+
+
+public class Quiz {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		// String input
+        String name = scanner.nextLine();
+ 
+        // Character input
+        char gender = scanner.next().charAt(0);
+ 
+        // Numerical data input
+        // byte, short and float can be read
+        // using similar-named functions.
+        int age = scanner.nextInt();
+        long mobileNo = scanner.nextLong();
+        double cgpa = scanner.nextDouble();
+ 
+        // Print the values to check if the input was
+        // correctly obtained.
+        System.out.println("Name: " + name);
+        System.out.println("Gender: " + gender);
+        System.out.println("Age: " + age);
+        System.out.println("Mobile Number: " + mobileNo);
+        System.out.println("CGPA: " + cgpa);
+		
+
+	}
+
+}

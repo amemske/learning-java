@@ -1,0 +1,115 @@
+package com.uopeople;
+
+import java.util.Scanner;
+
+public class Quiz {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        //store variables of the correct answers
+        int totalQuestions = 5;
+        char correctAnswer1 = 'C';
+        char correctAnswer2 = 'B';
+        char correctAnswer3 = 'C';
+        char correctAnswer4 = 'A';
+        char correctAnswer5 = 'C';
+        	
+        //display all the questions 1 at a time
+        
+     // Character input
+        System.out.print("Enter your gender: ");
+        char response1 = scanner.next().charAt(0);
+
+        // Consume the newline character
+        scanner.nextLine();
+        
+        // Character input
+        System.out.print("Enter your gender: ");
+        char response2 = scanner.next().charAt(0);
+
+        // Consume the newline character
+        scanner.nextLine();
+        
+     // Character input
+        System.out.print("Enter your gender: ");
+        char response3 = scanner.next().charAt(0);
+
+        // Consume the newline character
+        scanner.nextLine();
+        
+        
+     // Character input
+        System.out.print("Enter your gender: ");
+        char response4 = scanner.next().charAt(0);
+
+        // Consume the newline character
+        scanner.nextLine();
+        
+     // Character input
+        System.out.print("Enter your gender: ");
+        char response5 = scanner.next().charAt(0);
+
+        // Consume the newline character
+        scanner.nextLine();
+        
+        //store the answers 1 to 5 in response variables
+        //compare the variables if correctanswer1 matches response1
+        int correct = 0;
+        int correctResponses = 0;
+        if(response1 == correctAnswer1) {
+        	correct++;
+        	correct+=correctResponses;
+        } else {
+        	correct+=correctResponses;
+        }
+        if(response2 == correctAnswer2) {
+        	correct++;
+        	correct+=correctResponses;
+        }else {
+        	correct+=correctResponses;
+        }
+        if(response3 == correctAnswer3) {
+        	correct++;
+        	correct+=correctResponses;
+        }else {
+        	correct+=correctResponses;
+        }
+        if(response4 == correctAnswer4) {
+        	correct++;
+        	correct+=correctResponses;
+        }else {
+        	correct+=correctResponses;
+        }
+        if(response5 == correctAnswer5) {
+        	correct++;
+        	correct+=correctResponses;
+        }else {
+        	correct+=correctResponses;
+        }
+      //calculate   correctresponses / totalquestions * 100
+        
+      double percentage =  ((double)correctResponses / totalQuestions) * 100;
+        
+        
+     
+       
+    
+        // Print the values to check if the input was
+        // correctly obtained.
+        System.out.println("Which is the highest mountain: A. Mt.Elbrus, B. Mt.Kilimanjaro, C. Mt.Everest, D. Mt.Kilimanjaro," + response1);
+        System.out.println("She was working on her computer with her baby next to ____: A. herself, B. her, C. her own, D. hers, " + response2);
+        System.out.println("What is 6 + 6 : A. 66, B. 16, C. 12, D. 0," + response3);
+        System.out.println("What is the country code of USA: A. +1, B. +002, C. +97, D. +44, " + response4);
+        System.out.println("He _____ robbed as he was walking out of the bank:  A. had, B. did, C. got, D. were" + response5);
+
+        System.out.println("You got : " + percentage + "%");
+
+        
+      //display the percentage score
+        
+        
+        // Close the scanner to avoid resource leaks
+        scanner.close();
+    }
+}

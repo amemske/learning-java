@@ -1,0 +1,74 @@
+package com.example;
+import com.example.*;
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+        
+        int i = 1;
+
+        while (i <= 5) {
+
+            if (i % 2 == 0)
+
+                continue;
+
+            System.out.print(i + " ");
+
+            i++;
+
+        }
+    	
+        performModuloOperation1();
+        performModuloOperation2();
+        performModuloOperation3();
+        FruitSwitchExample();
+        
+        //importing EnterNumber class
+        EnterNumber.enterNumberOne();
+        
+        //import forloop class
+        OddNumbersForloop.oodNumbers();
+    }
+    public static void performModuloOperation1() {
+    	System.out.println("Inside performModuloOperation");
+        int x = 5;
+        int y = 2;
+        int result = x % y;
+
+        System.out.println("Result of x % y: " + result);
+    }
+    
+    public static void performModuloOperation2() {
+    	
+    	int result2 = 10;
+    	result2 -= 2*3;
+    	
+    	System.out.println(result2);
+    	
+    }
+public static void performModuloOperation3() {
+    	
+    	int valueX = 5;
+    	int valueY = 2;
+    	
+    	System.out.println(valueX> valueY ? "X is greater than Y": "X is less than Y");
+    	
+    }
+
+
+    public static void FruitSwitchExample() {
+        String fruit = "Watermelon";
+
+        switch (fruit) {
+            case "Watermelon" -> System.out.println("watermelons are great!");
+            case "Lemon", "Mango" -> System.out.println("It's either a lemon or a mango.");
+            case "Pineapple" -> {
+                System.out.println("It's a pineapple.");
+                System.out.println("pineapple are  also great fruits.");
+            }
+            default -> System.out.println("I don't know what fruit it is.");
+        }
+    }
+
+}

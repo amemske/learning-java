@@ -1,0 +1,40 @@
+package com.uopeople;
+
+public class StudentManagementSystem {
+	public static void main(String[] args) {
+		System.out.println("Hello, kenya!");
+	}
+
+	public class Student {
+		 private String name;
+		 private int ID;
+		 private int age;
+		 private int grade;
+		 
+		 //create constructor
+		 public Student(String name,int ID,int age, int grade  ) {
+			 this.name = name;
+			 this.ID = ID;
+			 this.age = age;
+			 this.grade = grade;
+			 
+		 }
+	}
+	
+	public interface StudentAdministrator {
+		
+		//add a student to the record
+		void addStudent(Student student);
+		
+		// update patient information
+		void updateStudent(Student student);
+		
+			
+		//show all patients
+		void showStudent(Student student);
+	}
+	
+	
+}
+
+

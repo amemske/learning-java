@@ -1,0 +1,122 @@
+package com.uopeople;
+
+import java.util.Scanner;
+
+public class Quiz {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        //store variables of the correct answers
+        int totalQuestions = 5;
+        char correctAnswer1 = 'C';
+        char correctAnswer2 = 'B';
+        char correctAnswer3 = 'C';
+        char correctAnswer4 = 'A';
+        char correctAnswer5 = 'C';
+        
+        //convert to lowercase
+        correctAnswer1 = Character.toLowerCase(correctAnswer1);
+        correctAnswer2 = Character.toLowerCase(correctAnswer2);
+        correctAnswer3 = Character.toLowerCase(correctAnswer3);
+        correctAnswer4 = Character.toLowerCase(correctAnswer4);
+        correctAnswer5 = Character.toLowerCase(correctAnswer5);
+        
+       
+        	
+        //display all the questions 1 at a time
+        
+     // Character input
+        System.out.print("Which is the highest mountain: A. Mt.Elbrus, B. Mt.Kilimanjaro, C. Mt.Everest, D. Mt.Kenya ");
+        char response1 = scanner.next().charAt(0);
+
+        // Consume the newline character
+        scanner.nextLine();
+        
+        // Character input
+        System.out.print("She was working on her computer with her baby next to ____: A. herself, B. her, C. her own, D. hers  ");
+        char response2 = scanner.next().charAt(0);
+
+        // Consume the newline character
+        scanner.nextLine();
+        
+     // Character input
+        System.out.print("What is 6 + 6 : A. 66, B. 16, C. 12, D. 0 ");
+        char response3 = scanner.next().charAt(0);
+
+        // Consume the newline character
+        scanner.nextLine();
+        
+        
+     // Character input
+        System.out.print("What is the country code of USA: A. +1, B. +002, C. +97, D. +44");
+        char response4 = scanner.next().charAt(0);
+
+        // Consume the newline character
+        scanner.nextLine();
+        
+     // Character input
+        System.out.print("He _____ robbed as he was walking out of the bank:  A. had, B. did, C. got, D. were");
+        char response5 = scanner.next().charAt(0);
+
+        // Consume the newline character
+        scanner.nextLine();
+        
+        
+        //convert responses to lowercase
+        response1 = Character.toLowerCase(response1);
+        response2 = Character.toLowerCase(response2);
+        response3 = Character.toLowerCase(response3);
+        response4 = Character.toLowerCase(response4);
+        response5 = Character.toLowerCase(response5);
+       
+        
+        //store the answers 1 to 5 in response variables
+        //compare the variables if correctanswer1 matches response1
+        
+        
+     
+     
+        int correctResponses = 0;
+        if(response1 == correctAnswer1) {  	
+        	correctResponses++;
+        } else if(!Character.isLetter(response1)){
+        	if(response1 != 'a' && response1 != 'b' && response1 != 'c' && response1 != 'd') {
+        		System.out.println("Please enter a letter between: A to C");
+        	} else {
+        		System.out.println("Please enter a letter");
+        	}
+        	
+        }
+        if(response2 == correctAnswer2) {  	
+        	correctResponses++;
+        }
+        if(response3 == correctAnswer3) {  	
+        	correctResponses++;
+        }
+        if(response4 == correctAnswer4) {  	
+        	correctResponses++;
+        }
+        if(response5 == correctAnswer5) {  	
+        	correctResponses++;
+        }
+      //calculate   correctresponses / totalquestions * 100
+        
+      double percentage =  ((double)correctResponses / totalQuestions) * 100;
+        
+        
+     
+       
+    
+        // Print the values to check if the input was
+     
+        System.out.println("You got : " + percentage + "%");
+
+        
+      //display the percentage score
+        
+        
+        // Close the scanner to avoid resource leaks
+        scanner.close();
+    }
+}

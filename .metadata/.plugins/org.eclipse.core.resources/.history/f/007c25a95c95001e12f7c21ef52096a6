@@ -1,0 +1,208 @@
+package com.uopeople;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class StudentManagementSystem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        StudentRecords studentRecord = new StudentRecords();
+        int choice;
+
+        // validation
+        do {
+            System.out.println("To add a new student press 1");
+            System.out.println("To update student information press 2");
+            System.out.println("To view a student details press 3");
+            System.out.print("Enter your choice: ");
+
+            // Validate input
+            while (!scanner.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a number between 1 and 3.");
+                scanner.next(); // Consume the invalid input
+            }
+            choice = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+
+            if (choice < 1 || choice > 3) {
+                System.out.println("Please select 1 to 3");
+            }
+        } while (choice < 1 || choice > 3);
+
+        while (true) {
+            if (choice == 1) {
+                System.out.println("To add a student: ");
+                System.out.print("Enter student ID: ");
+                int studentID = scanner.nextInt();
+                scanner.nextLine();  // add a new line
+
+                System.out.println("Enter student name: ");
+                String studentName = scanner.nextLine();
+                System.out.println("Enter student age: ");
+                int studentAge = scanner.nextInt();
+                scanner.nextLine();  // add a new line
+
+                System.out.println("Enter student grade: ");
+                int studentgrade = scanner.nextInt();
+                scanner.nextLine();  // read and process a new line
+
+                Student student1 = new Student(studentID, studentName, studentAge, studentgrade);
+
+                // add students
+                studentRecord.addStudent(student1);
+                System.out.println("Student added successfully");
+                continue;
+            } else if (choice == 2) {
+                System.out.println("To edit a student: ");
+                System.out.print("Enter student ID: ");
+                int studentID = scanner.nextInt();
+                scanner.nextLine();  // read and process a new line
+
+                // find the student by ID
+                Student currentStudent = studentRecord.findStudentByID(studentID);
+
+                // display student details
+                if (currentStudent != null) {
+                    System.out.print("Edit student name? (y/n): ");
+                    String updateName = scanner.nextLine();
+                    if ("y".equalsIgnoreCase(updateName)) {
+                        System.out.print("Enter new student name: ");
+                        String newStudentName = scanner.nextLine();
+                        currentStudent.setName(newStudentName);
+                        System.out.print("Name updated successfully");
+                    } else if ("n".equalsIgnoreCase(updateName)) {
+                        System.out.println("Ok, no update!");
+                    } else {
+                        System.out.println("Ok, no update!");
+                    }
+
+                    System.out.print("Edit student age? (y/n): ");
+                    String updateAge = scanner.nextLine();
+                    if ("y".equalsIgnoreCase(updateAge)) {
+                        System.out.print("Enter new student age: ");
+                        int newAge = scanner.nextInt();
+                        scanner.nextLine();
+                        currentStudent.setAge(newAge);
+                        System.out.print("Age updated successfully");
+                    } else if ("n".equalsIgnoreCase(updateAge)) {
+                        System.out.println("Ok, no update!");
+                    } else {
+                        System.out.println("Ok, no update!");
+                    }
+
+                    System.out.print("Edit student grade? (y/n): ");
+                    String updateGrade = scanner.nextLine();
+                    if ("y".equalsIgnoreCase(updateGrade)) {
+                        System.out.print("Enter new student grade: ");
+                        int newGrade = scanner.nextInt();
+                        scanner.nextLine();
+                        currentStudent.setGrade(newGrade);
+                        System.out.print("Grade updated successfully");
+                    } else if ("n".equalsIgnoreCase(updateGrade)) {
+                        System.out.println("Ok, no update!");
+                    } else {
+                        System.out.println("Ok, no update!");
+                    }
+                } else {
+                    System.out.println("Student not found");
+                }
+            } else if (choice == 3) {
+                System.out.println("To view a student: ");
+                System.out.print("Enter student ID: ");
+                int studentID = scanner.nextInt();
+                scanner.nextLine();  // read and process a new line
+
+                // find the student with the id
+                Student currentStudent = studentRecord.findStudentByID(studentID);
+
+                if (currentStudent != null) {
+                    studentRecord.showStudent(studentID);
+                } else {
+                    System.out.println("Student not found");
+                }
+            }
+
+            System.out.println("To return to the menu, press any key. To exit, enter 'q'.");
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("q")) {
+                break;
+            }
+        }
+    }
+}
+
+class StudentRecords {
+    private List<Student> studentList;
+
+    public StudentRecords() {
+        studentList = new ArrayList<>();
+    }
+
+    public void addStudent(Student student) {
+        studentList.add(student);
+    }
+
+    public Student findStudentByID(int studentID) {
+        for (Student student : studentList) {
+            if (student.getStudentID() == studentID) {
+                return student;
+            }
+        }
+        return null;
+    }
+
+    public void showStudent(int studentID) {
+        for (Student student : studentList) {
+            if (student.getStudentID() == studentID) {
+                System.out.println("Student ID: " + student.getStudentID());
+                System.out.println("Student Name: " + student.getName());
+                System.out.println("Student Age: " + student.getAge());
+                System.out.println("Student Grade: " + student.getGrade());
+                return;
+            }
+        }
+    }
+}
+
+class Student {
+    private int studentID;
+    private String name;
+    private int age;
+    private int grade;
+
+    public Student(int studentID, String name, int age, int grade) {
+        this.studentID = studentID;
+        this.name = name;
+        this.age = age;
+        this.grade = grade;
+    }
+
+    public int getStudentID() {
+        return studentID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+}

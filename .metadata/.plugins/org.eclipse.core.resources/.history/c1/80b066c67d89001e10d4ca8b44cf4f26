@@ -1,0 +1,42 @@
+package com.uopeople;
+
+import java.util.Scanner;
+
+public class Quiz {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // String input
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+
+        // Character input
+        System.out.print("Enter your gender: ");
+        char gender = scanner.next().charAt(0);
+
+        // Consume the newline character
+        scanner.nextLine();
+
+        // Numerical data input
+        System.out.print("Enter your age: ");
+        int age = scanner.nextInt();
+
+        System.out.print("Enter your mobile number: ");
+        long mobileNo = scanner.nextLong();
+
+        System.out.print("Enter your CGPA: ");
+        double cgpa = scanner.nextDouble();
+
+        // Print the values to check if the input was
+        // correctly obtained.
+        System.out.println("Name: " + name);
+        System.out.println("Gender: " + gender);
+        System.out.println("Age: " + age);
+        System.out.println("Mobile Number: " + mobileNo);
+        System.out.println("CGPA: " + cgpa);
+
+        // Close the scanner to avoid resource leaks
+        scanner.close();
+    }
+}

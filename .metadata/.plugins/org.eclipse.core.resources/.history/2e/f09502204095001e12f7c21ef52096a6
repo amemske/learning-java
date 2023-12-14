@@ -1,0 +1,155 @@
+package com.uopeople;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class StudentManagementSystem {
+    public static void main(String[] args) {
+    	Scanner scanner = new Scanner(System.in);
+    	
+    	System.out.println("To add a new student press 1 ");
+    	System.out.println("To update student information press 2 ");
+    	System.out.println("To view a student details press 3 followed by the student ID ");
+    	System.out.print("Enter your choice: ");
+    	
+    	int choice = scanner.nextInt();
+        scanner.nextLine();  // read and process a new line
+    	
+        StudentRecords studentRecord = new StudentRecords();
+        
+    	if(choice == 1) {
+    		System.out.println("To add a student: ");
+            System.out.print("Enter student ID: ");
+            int studentID = scanner.nextInt();
+            System.out.print("Enter student name: ");
+            String studentName = scanner.nextLine();
+            System.out.print("Enter student age: ");
+            int studentAge = scanner.nextInt();
+            System.out.print("Enter student grade: ");
+            int studentgrade = scanner.nextInt();
+            scanner.nextLine();  // read and process a new line
+            
+           Student student1 = new Student(studentID, studentName, studentAge, studentgrade);
+
+            // add students
+            studentRecord.addStudent(student1);
+    		
+    	}
+    	
+    	if(choice == 2) {
+    		System.out.println("To edit a student: ");
+    		System.out.print("Enter student ID: ");
+            int studentID = scanner.nextInt();
+            System.out.print("Edit student name: y/n ");
+            String studentName = scanner.nextLine();
+            System.out.print("Enter student age:  y/n");
+            int studentAge = scanner.nextInt();
+            System.out.print("Enter student grade:  y/n");
+            int studentgrade = scanner.nextInt();
+            scanner.nextLine();  // read and process a new line
+            
+           Student student1 = new Student(studentID, studentName, studentAge, studentgrade);
+
+            // add students
+            studentRecord.addStudent(student1);
+    		
+    	}
+    	if (choice == 3) {
+    		System.out.println("To add a student: ");
+            System.out.print("Enter student ID: ");
+            int studentID = scanner.nextInt();
+            System.out.print("Enter student name: ");
+            String studentName = scanner.nextLine();
+            System.out.print("Enter student age: ");
+            int studentAge = scanner.nextInt();
+            System.out.print("Enter student grade: ");
+            int studentgrade = scanner.nextInt();
+            scanner.nextLine();  // read and process a new line
+            
+           Student student1 = new Student(studentID, studentName, studentAge, studentgrade);
+
+            // add students
+            studentRecord.addStudent(student1);
+    	}
+    	
+        
+
+        // show students
+        studentRecord.showStudents();
+    }
+}
+
+class Student {
+    private String name;
+    private int ID;
+    private int age;
+    private int grade;
+
+    // create constructor
+    public Student(int ID, String name, int age, int grade) {
+        this.name = name;
+        this.ID = ID;
+        this.age = age;
+        this.grade = grade;
+    }
+
+    // getter methods
+    public String getName() {
+        return name;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+}
+
+interface StudentAdministrator {
+    // add a student to the record
+    void addStudent(Student student);
+
+    // update student information
+    void updateStudent(Student student);
+
+    // show all students
+    void showStudents();
+}
+
+class StudentRecords implements StudentAdministrator {
+    private List<Student> students;
+
+    // constructor
+    public StudentRecords() {
+        this.students = new ArrayList<>();
+    }
+
+    // add a student to the record
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+
+    // update student information
+    public void updateStudent(Student student) {
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getID() == student.getID()) {
+                students.set(i, student);
+            }
+        }
+    }
+
+    // show all students
+    public void showStudents() {
+        // show all students
+        for (Student student : students) {
+            System.out.println(String.format("ID: %d, Name: %s, Age: %d", student.getID(), student.getName(), student.getAge()));
+        }
+    }
+}

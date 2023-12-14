@@ -1,0 +1,26 @@
+package com.example;
+import com.example.*;
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+        
+        int i = 1;
+
+        while (i <= 5) {
+
+            if (i % 2 == 0)
+
+                continue;
+
+            System.out.print(i + " ");
+
+            i++;
+
+        }
+    	
+        
+    }
+  
+
+}
